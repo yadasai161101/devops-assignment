@@ -22,12 +22,12 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t hello-devops:latest .
+        run: docker build -t saiyada/hello-devops:latest .
 
       - name: Run Trivy Scan
         uses: aquasecurity/trivy-action@0.28.0
         with:
-          image-ref: hello-devops:latest
+          image-ref: saiyada/hello-devops:latest
           severity: 'HIGH,CRITICAL'
           exit-code: '0'
 
