@@ -32,4 +32,4 @@ jobs:
           exit-code: '0'
 
       - name: Push to DockerHub
-        run: docker push hello-devops:latest
+        run: docker push saiyada/hello-devops:latest
