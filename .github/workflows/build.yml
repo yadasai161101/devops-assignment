@@ -22,14 +22,14 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t $env:IMAGE_NAME:latest .
+        run: docker build -t hello-devops:latest .
 
       - name: Run Trivy Scan
         uses: aquasecurity/trivy-action@v2
         with:
-          image-ref: ${{ env.IMAGE_NAME }}:latest
+          image-ref: hello-devops:latest
           severity: 'HIGH,CRITICAL'
           exit-code: '1'
 
       - name: Push to DockerHub
-        run: docker push $env:IMAGE_NAME:latest
+        run: docker push hello-devops:latest
